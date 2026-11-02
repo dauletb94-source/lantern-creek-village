@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lantern Creek Village</title><meta name="description" content="Every TikTok follower gets a house in Lantern Creek Village. Find yours.">
+<meta property="og:title" content="Lantern Creek Village"><meta property="og:image" content="img/avatar.jpg">
+<meta name="theme-color" content="#0b1020"><link rel="icon" href="img/avatar.jpg">
+<link rel="stylesheet" href="lib/leaflet.css"><link rel="stylesheet" href="lib/pannellum.css"><link rel="stylesheet" href="style.css">
+</head><body class="night">
+<header><img src="img/avatar.jpg" alt=""><div><h1>Lantern Creek Village</h1><small>Every follower gets a house 🏡🔥</small></div>
+<button id="dn" aria-label="Day/night">🌙</button></header>
+<div id="streak" class="card glow"></div>
+<form id="sf" autocomplete="off"><input id="q" placeholder="Find your house: @nickname" list="hl"><datalist id="hl"></datalist><button>🔍</button></form>
+<div id="msg"></div>
+<nav><button data-t="map" class="on">🗺️ Map</button><button data-t="walk">🚶 Walk</button><button data-t="news">📰 News</button><button data-t="top">🏆 Top</button></nav>
+<section id="t-map" class="tab on"><div id="map"></div><div id="house" class="card"></div></section>
+<section id="t-walk" class="tab"><div id="pano"></div><p class="hint">Drag to look around · tap ➜ arrows to walk</p></section>
+<section id="t-news" class="tab"><div id="news"></div></section>
+<section id="t-top" class="tab"><ol id="top"></ol><p class="hint">Ranking by likes on your village comment. Updated with each video.</p></section>
+<a id="cta" class="card" href="https://www.tiktok.com/@lantern.creek.vil" target="_blank" rel="noopener">Want a house? Follow <b>@lantern.creek.vil</b> and comment <b>“I want in”</b> + your flag 👇</a>
+<a id="donate" target="_blank" rel="noopener" hidden>💚 Support the village · Cash App</a>
+<footer>Music: Kevin MacLeod (<a href="https://incompetech.com">incompetech.com</a>), licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Owl sound: Wikimedia Commons, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.<br>Rendered in Unreal Engine. No accounts, no tracking — your streak lives only on your phone.</footer>
+<script src="lib/leaflet.js"></script><script src="lib/pannellum.js"></script><script src="app.js"></script>
+</body></html>

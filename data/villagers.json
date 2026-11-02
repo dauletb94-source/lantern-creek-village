@@ -1,0 +1,129 @@
+{
+ "villagers": [
+  {
+   "handle": "lantern.creek.vil",
+   "name": "Даки (Village founder)",
+   "flag": "🇺🇸",
+   "country": "USA",
+   "joined": "2026-10-31",
+   "x": 480,
+   "y": 290,
+   "image": "img/f5.jpg",
+   "owner": true,
+   "likes": 0,
+   "pano": "p1"
+  },
+  {
+   "handle": "alex_zhiend",
+   "name": "Alex",
+   "flag": "🇨🇦",
+   "country": "Canada",
+   "joined": "2026-11-01",
+   "x": 400,
+   "y": 230,
+   "image": "img/f10.jpg",
+   "likes": 0,
+   "pano": "p2"
+  },
+  {
+   "handle": "dj.happy2smile",
+   "name": "happy2smile",
+   "flag": "🇺🇸",
+   "country": "USA",
+   "joined": "2026-11-01",
+   "x": 575,
+   "y": 235,
+   "image": "img/f12.jpg",
+   "likes": 0,
+   "pano": "p2"
+  },
+  {
+   "handle": "gutsyheart0_0",
+   "name": "ПаПка",
+   "flag": "🇺🇸",
+   "country": "USA",
+   "joined": "2026-11-01",
+   "x": 395,
+   "y": 350,
+   "image": "img/f15.jpg",
+   "likes": 0,
+   "pano": "p3"
+  },
+  {
+   "handle": "oblvan",
+   "name": "Ob1van",
+   "flag": "🇺🇸",
+   "country": "USA",
+   "joined": "2026-11-01",
+   "x": 580,
+   "y": 355,
+   "image": "img/f18.jpg",
+   "likes": 0,
+   "pano": "p3"
+  }
+ ],
+ "panos": [
+  {
+   "id": "p1",
+   "title": "Campfire square",
+   "night": "pano/p1_night.jpg",
+   "day": "pano/p1_day.jpg",
+   "links": [
+    {
+     "to": "p2",
+     "yaw": 40
+    },
+    {
+     "to": "p3",
+     "yaw": -140
+    }
+   ]
+  },
+  {
+   "id": "p2",
+   "title": "North lane",
+   "night": "pano/p2_night.jpg",
+   "day": "pano/p2_day.jpg",
+   "links": [
+    {
+     "to": "p1",
+     "yaw": -140
+    },
+    {
+     "to": "p3",
+     "yaw": 100
+    }
+   ]
+  },
+  {
+   "id": "p3",
+   "title": "South lane",
+   "night": "pano/p3_night.jpg",
+   "day": "pano/p3_day.jpg",
+   "links": [
+    {
+     "to": "p1",
+     "yaw": 40
+    },
+    {
+     "to": "p2",
+     "yaw": -80
+    }
+   ]
+  }
+ ],
+ "news": [
+  {
+   "date": "2026-11-01",
+   "text": "🏡 Welcome @alex_zhiend 🇨🇦, @dj.happy2smile 🇺🇸, @gutsyheart0_0 🇺🇸 and @oblvan 🇺🇸 — the first neighbors! Their houses are being built next to the campfire."
+  },
+  {
+   "date": "2026-11-01",
+   "text": "🔥 The first Lantern Creek reel is live on TikTok. Comment \"I want in\" + your flag to get a house."
+  },
+  {
+   "date": "2026-11-01",
+   "text": "🗺️ The village map is open! Search your nickname to find your house."
+  }
+ ]
+}

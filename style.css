@@ -1,0 +1,26 @@
+*{box-sizing:border-box}html,body{margin:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#f4ead6;background:radial-gradient(ellipse at top,#1d2547,#0b1020 60%);min-height:100vh;padding:env(safe-area-inset-top) 12px 24px;max-width:720px;margin:auto}
+body.day{background:radial-gradient(ellipse at top,#8fc3ff,#f6d9a5 80%);color:#2a1e10}
+header{display:flex;align-items:center;gap:10px;padding:12px 0}header img{width:48px;height:48px;border-radius:50%;border:2px solid #ffb347;box-shadow:0 0 16px #ff9a3c}
+h1{font-family:Georgia,serif;font-size:1.35rem;margin:0;letter-spacing:.5px}header small{opacity:.8}
+#dn{margin-left:auto;font-size:1.4rem;background:none;border:1px solid #ffb34766;border-radius:50%;width:44px;height:44px;cursor:pointer}
+.card{background:#ffffff10;border:1px solid #ffb34740;border-radius:16px;padding:12px;margin:10px 0;backdrop-filter:blur(6px)}
+.day .card{background:#ffffff80}
+.glow{box-shadow:0 0 24px #ff9a3c33}
+#streak b{color:#ffb347;font-size:1.3rem}
+form{display:flex;gap:6px}input{flex:1;padding:12px 14px;border-radius:24px;border:1px solid #ffb34766;background:#0008;color:inherit;font-size:16px}
+.day input{background:#fff9}
+form button,nav button{border:0;border-radius:24px;padding:10px 14px;background:#ffb347;color:#2a1608;font-weight:700;cursor:pointer}
+#msg{min-height:1.2em;font-size:.9rem;color:#ff8a8a;margin:4px 6px}
+nav{display:flex;gap:6px;overflow-x:auto;margin:6px 0}nav button{background:#ffffff18;color:inherit;font-weight:600;white-space:nowrap}nav button.on{background:#ffb347;color:#2a1608}
+.tab{display:none}.tab.on{display:block}
+#map,#pano{height:58vh;min-height:320px;border-radius:16px;overflow:hidden;border:1px solid #ffb34755;background:#000}
+.lbl{background:#0b1020dd;color:#ffe2b0;border:1px solid #ffb347;border-radius:10px;padding:2px 6px;font-size:12px;white-space:nowrap;font-weight:600;box-shadow:0 0 10px #ff9a3c88}
+.lbl.owner{background:#ff9a3c;color:#1a0d00}
+#house img{width:100%;max-height:260px;object-fit:cover;border-radius:12px}#house h3{margin:8px 0 2px}
+#house a,#cta,footer a{color:#ffb347}.day #house a,.day footer a{color:#a24d00}
+#cta{display:block;text-decoration:none;color:inherit;text-align:center}
+#donate{display:block;text-align:center;margin:10px auto;padding:12px;border-radius:24px;background:#00d64f;color:#002b10;font-weight:700;text-decoration:none;max-width:320px}
+.news{border-left:3px solid #ffb347;padding:4px 10px;margin:10px 0}.news time{font-size:.8rem;opacity:.7}
+#top li{padding:8px;border-bottom:1px solid #ffffff1a}.hint{font-size:.8rem;opacity:.7;text-align:center}
+footer{font-size:.75rem;opacity:.75;text-align:center;margin-top:20px;line-height:1.5}
