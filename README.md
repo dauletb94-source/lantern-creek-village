@@ -9,7 +9,7 @@ Static site, no backend. Open `index.html` via any static host (GitHub Pages).
 
 ## Dropping in Unreal renders
 - **Map:** orthographic top-down render, any size (e.g. 4096x2304). Save as `img/map.jpg` / `img/map_day.jpg`, set `map.width/height` in config. House `x,y` = pixel coordinates in that image (origin top-left).
-- **Panoramas:** equirectangular 2:1 (e.g. 4096x2048, Unreal Panoramic Capture), `pano/<id>_night.jpg` + `_day.jpg`. In `panos[]` set `links` = `{to, yaw}` (yaw degrees, 0 = image center) for walk arrows. Placeholders now use vaov 160; for true equirect set vaov 180 in app.js.
+- **Panoramas:** equirectangular 2:1 (e.g. 4096x2048, Unreal Panoramic Capture), `pano/<id>_night.jpg` + `_day.jpg`. In `panos[]` set `links` = `{to, yaw}` (yaw degrees, 0 = image center) for walk arrows. Real Unreal panoramas (4096x2048 equirect, vaov 180) from VillageReel/site_export, 17 points; links yaw computed from world coords (integrate.py).
 - **House stills:** `img/house_<handle>.jpg`, ~1080 wide, set `image`.
 
 ## Add a villager

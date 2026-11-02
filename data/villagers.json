@@ -6,12 +6,12 @@
       "flag": "🇺🇸",
       "country": "USA",
       "joined": "2026-10-31",
-      "x": 480,
-      "y": 290,
+      "x": 2267.4,
+      "y": 1206.8,
       "image": "img/f5.jpg",
       "owner": true,
       "likes": 0,
-      "pano": "p1"
+      "pano": "p000"
     },
     {
       "handle": "alex_zhiend",
@@ -19,11 +19,11 @@
       "flag": "🇨🇦",
       "country": "Canada",
       "joined": "2026-11-01",
-      "x": 400,
-      "y": 230,
+      "x": 2524.9,
+      "y": 1750.3,
       "image": "img/f10.jpg",
       "likes": 0,
-      "pano": "p2"
+      "pano": "p001"
     },
     {
       "handle": "dj.happy2smile",
@@ -31,11 +31,11 @@
       "flag": "🇲🇩",
       "country": "Moldova",
       "joined": "2026-11-01",
-      "x": 575,
-      "y": 235,
+      "x": 2122.3,
+      "y": 2106.9,
       "image": "img/f12.jpg",
       "likes": 0,
-      "pano": "p2"
+      "pano": "p002"
     },
     {
       "handle": "gutsyheart0_0",
@@ -43,11 +43,11 @@
       "flag": "🇺🇸",
       "country": "USA",
       "joined": "2026-11-01",
-      "x": 395,
-      "y": 350,
+      "x": 1596.7,
+      "y": 2116.1,
       "image": "img/f15.jpg",
       "likes": 0,
-      "pano": "p3"
+      "pano": "p003"
     },
     {
       "handle": "oblvan",
@@ -55,59 +55,378 @@
       "flag": "🇺🇸",
       "country": "USA",
       "joined": "2026-11-01",
-      "x": 580,
-      "y": 355,
+      "x": 1195.5,
+      "y": 1796.8,
       "image": "img/f18.jpg",
       "likes": 0,
-      "pano": "p3"
+      "pano": "p004"
     }
   ],
   "panos": [
     {
-      "id": "p1",
-      "title": "Campfire square",
-      "night": "pano/p1_night.jpg",
-      "day": "pano/p1_day.jpg",
+      "id": "p000",
+      "title": "🔥 @lantern.creek.vil",
+      "kind": "house",
+      "x": 1876.5,
+      "y": 1206.8,
+      "night": "pano/p000_night.jpg",
+      "day": "pano/p000_day.jpg",
       "links": [
         {
-          "to": "p2",
-          "yaw": 40
+          "to": "p005",
+          "yaw": 4.3,
+          "pitch": -30
         },
         {
-          "to": "p3",
-          "yaw": -140
+          "to": "p011",
+          "yaw": 157.8,
+          "pitch": -12.8
         }
       ]
     },
     {
-      "id": "p2",
-      "title": "North lane",
-      "night": "pano/p2_night.jpg",
-      "day": "pano/p2_day.jpg",
+      "id": "p001",
+      "title": "🏡 @alex_zhiend",
+      "kind": "house",
+      "x": 2179.7,
+      "y": 1566.8,
+      "night": "pano/p001_night.jpg",
+      "day": "pano/p001_day.jpg",
       "links": [
         {
-          "to": "p1",
-          "yaw": -140
-        },
-        {
-          "to": "p3",
-          "yaw": 100
+          "to": "p006",
+          "yaw": -153.9,
+          "pitch": -15.9
         }
       ]
     },
     {
-      "id": "p3",
-      "title": "South lane",
-      "night": "pano/p3_night.jpg",
-      "day": "pano/p3_day.jpg",
+      "id": "p002",
+      "title": "🏡 @dj.happy2smile",
+      "kind": "house",
+      "x": 1982.1,
+      "y": 1741.9,
+      "night": "pano/p002_night.jpg",
+      "day": "pano/p002_day.jpg",
       "links": [
         {
-          "to": "p1",
-          "yaw": 40
+          "to": "p007",
+          "yaw": -169.7,
+          "pitch": -19.3
+        }
+      ]
+    },
+    {
+      "id": "p003",
+      "title": "🏡 @gutsyheart0_0",
+      "kind": "house",
+      "x": 1723.9,
+      "y": 1746.4,
+      "night": "pano/p003_night.jpg",
+      "day": "pano/p003_day.jpg",
+      "links": [
+        {
+          "to": "p008",
+          "yaw": 167.5,
+          "pitch": -19.0
+        }
+      ]
+    },
+    {
+      "id": "p004",
+      "title": "🏡 @oblvan",
+      "kind": "house",
+      "x": 1527.1,
+      "y": 1589.6,
+      "night": "pano/p004_night.jpg",
+      "day": "pano/p004_day.jpg",
+      "links": [
+        {
+          "to": "p008",
+          "yaw": -153.9,
+          "pitch": -15.9
+        }
+      ]
+    },
+    {
+      "id": "p005",
+      "title": "🔥 Campfire",
+      "kind": "campfire",
+      "x": 1949.2,
+      "y": 1212.4,
+      "night": "pano/p005_night.jpg",
+      "day": "pano/p005_day.jpg",
+      "links": [
+        {
+          "to": "p000",
+          "yaw": 64.3,
+          "pitch": -30
         },
         {
-          "to": "p2",
-          "yaw": -80
+          "to": "p006",
+          "yaw": -60.0,
+          "pitch": -16.9
+        },
+        {
+          "to": "p010",
+          "yaw": 60.0,
+          "pitch": -16.9
+        }
+      ]
+    },
+    {
+      "id": "p006",
+      "title": "🔥 Campfire",
+      "kind": "campfire",
+      "x": 2051.6,
+      "y": 1389.8,
+      "night": "pano/p006_night.jpg",
+      "day": "pano/p006_day.jpg",
+      "links": [
+        {
+          "to": "p001",
+          "yaw": -125.9,
+          "pitch": -15.9
+        },
+        {
+          "to": "p005",
+          "yaw": 60.0,
+          "pitch": -16.9
+        },
+        {
+          "to": "p007",
+          "yaw": -60.0,
+          "pitch": -16.9
+        }
+      ]
+    },
+    {
+      "id": "p007",
+      "title": "🔥 Campfire",
+      "kind": "campfire",
+      "x": 1949.2,
+      "y": 1567.1,
+      "night": "pano/p007_night.jpg",
+      "day": "pano/p007_day.jpg",
+      "links": [
+        {
+          "to": "p002",
+          "yaw": -160.7,
+          "pitch": -19.3
+        },
+        {
+          "to": "p006",
+          "yaw": 60.0,
+          "pitch": -16.9
+        },
+        {
+          "to": "p008",
+          "yaw": -60.0,
+          "pitch": -16.9
+        }
+      ]
+    },
+    {
+      "id": "p008",
+      "title": "🔥 Campfire",
+      "kind": "campfire",
+      "x": 1744.4,
+      "y": 1567.1,
+      "night": "pano/p008_night.jpg",
+      "day": "pano/p008_day.jpg",
+      "links": [
+        {
+          "to": "p003",
+          "yaw": 156.5,
+          "pitch": -19.0
+        },
+        {
+          "to": "p004",
+          "yaw": -125.9,
+          "pitch": -15.9
+        },
+        {
+          "to": "p007",
+          "yaw": 60.0,
+          "pitch": -16.9
+        },
+        {
+          "to": "p009",
+          "yaw": -60.0,
+          "pitch": -16.9
+        }
+      ]
+    },
+    {
+      "id": "p009",
+      "title": "🔥 Campfire",
+      "kind": "campfire",
+      "x": 1642.1,
+      "y": 1389.8,
+      "night": "pano/p009_night.jpg",
+      "day": "pano/p009_day.jpg",
+      "links": [
+        {
+          "to": "p008",
+          "yaw": 60.0,
+          "pitch": -16.9
+        },
+        {
+          "to": "p010",
+          "yaw": -60.0,
+          "pitch": -16.9
+        },
+        {
+          "to": "p011",
+          "yaw": -103.0,
+          "pitch": -30
+        }
+      ]
+    },
+    {
+      "id": "p010",
+      "title": "🔥 Campfire",
+      "kind": "campfire",
+      "x": 1744.4,
+      "y": 1212.4,
+      "night": "pano/p010_night.jpg",
+      "day": "pano/p010_day.jpg",
+      "links": [
+        {
+          "to": "p005",
+          "yaw": -60.0,
+          "pitch": -16.9
+        },
+        {
+          "to": "p009",
+          "yaw": 60.0,
+          "pitch": -16.9
+        }
+      ]
+    },
+    {
+      "id": "p011",
+      "title": "🌲 Forest trail 1",
+      "kind": "path",
+      "x": 1623.7,
+      "y": 1309.9,
+      "night": "pano/p011_night.jpg",
+      "day": "pano/p011_day.jpg",
+      "links": [
+        {
+          "to": "p000",
+          "yaw": -175.4,
+          "pitch": -12.8
+        },
+        {
+          "to": "p009",
+          "yaw": -76.1,
+          "pitch": -30
+        },
+        {
+          "to": "p012",
+          "yaw": 8.4,
+          "pitch": -13.0
+        }
+      ]
+    },
+    {
+      "id": "p012",
+      "title": "🌲 Forest trail 2",
+      "kind": "path",
+      "x": 1368.1,
+      "y": 1395.3,
+      "night": "pano/p012_night.jpg",
+      "day": "pano/p012_day.jpg",
+      "links": [
+        {
+          "to": "p011",
+          "yaw": 168.1,
+          "pitch": -13.0
+        },
+        {
+          "to": "p013",
+          "yaw": 3.1,
+          "pitch": -12.8
+        }
+      ]
+    },
+    {
+      "id": "p013",
+      "title": "🌲 Forest trail 3",
+      "kind": "path",
+      "x": 1095.3,
+      "y": 1411.7,
+      "night": "pano/p013_night.jpg",
+      "day": "pano/p013_day.jpg",
+      "links": [
+        {
+          "to": "p012",
+          "yaw": 176.6,
+          "pitch": -12.8
+        },
+        {
+          "to": "p014",
+          "yaw": 0.0,
+          "pitch": -12.8
+        }
+      ]
+    },
+    {
+      "id": "p014",
+      "title": "🌲 Forest trail 4",
+      "kind": "path",
+      "x": 821.6,
+      "y": 1411.7,
+      "night": "pano/p014_night.jpg",
+      "day": "pano/p014_day.jpg",
+      "links": [
+        {
+          "to": "p013",
+          "yaw": -180.0,
+          "pitch": -12.8
+        },
+        {
+          "to": "p015",
+          "yaw": 0.0,
+          "pitch": -12.8
+        }
+      ]
+    },
+    {
+      "id": "p015",
+      "title": "🌲 Forest trail 5",
+      "kind": "path",
+      "x": 548.0,
+      "y": 1411.7,
+      "night": "pano/p015_night.jpg",
+      "day": "pano/p015_day.jpg",
+      "links": [
+        {
+          "to": "p014",
+          "yaw": -180.0,
+          "pitch": -12.8
+        },
+        {
+          "to": "p016",
+          "yaw": 0.0,
+          "pitch": -12.8
+        }
+      ]
+    },
+    {
+      "id": "p016",
+      "title": "🌲 Forest trail 6",
+      "kind": "path",
+      "x": 274.3,
+      "y": 1411.7,
+      "night": "pano/p016_night.jpg",
+      "day": "pano/p016_day.jpg",
+      "links": [
+        {
+          "to": "p015",
+          "yaw": -180.0,
+          "pitch": -12.8
         }
       ]
     }
