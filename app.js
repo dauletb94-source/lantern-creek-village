@@ -3,7 +3,7 @@ const $=s=>document.querySelector(s);
 const [cfg,data]=await Promise.all(['data/config.json','data/villagers.json'].map(u=>fetch(u,{cache:'no-cache'}).then(r=>r.json())));
 const V=data.villagers, norm=s=>s.trim().toLowerCase().replace(/^@/,'');
 let pref=localStorage.getItem('lc_pref')||'auto';localStorage.removeItem('lc_mode');
-let loc=JSON.parse(localStorage.getItem('lc_geo')||'null')||LCSun.tzGuess();
+localStorage.removeItem('lc_geo');localStorage.removeItem('lc_geo_asked');const loc=LCSun.tzGuess();
 const now=()=>window.__lcNow?new Date(window.__lcNow):new Date();
 const sunAlt=()=>LCSun.alt(now(),loc.lat,loc.lon);
 const autoMode=()=>sunAlt()>-0.833?'day':'night';
@@ -40,7 +40,6 @@ function label(){$('#dn').textContent=pref==='auto'?(mode==='night'?'🌙A':'☀
 function tick(){setMode(pref==='auto'?autoMode():pref);applyDim();label();}
 $('#dn').onclick=()=>{pref={auto:'day',day:'night',night:'auto'}[pref];localStorage.setItem('lc_pref',pref);tick();};
 document.body.classList.add(mode);tick();setInterval(tick,60000);window.__lcTick=tick;
-if(!localStorage.getItem('lc_geo_asked')&&navigator.geolocation){localStorage.setItem('lc_geo_asked','1');navigator.geolocation.getCurrentPosition(p=>{loc={lat:+p.coords.latitude.toFixed(2),lon:+p.coords.longitude.toFixed(2),src:'gps'};localStorage.setItem('lc_geo',JSON.stringify(loc));tick();},()=>{},{timeout:10000,maximumAge:864e5});}
 // news + top
 $('#news').innerHTML=data.news.map(n=>`<div class="news"><time>${n.date}</time><div>${n.text}</div></div>`).join('');
 $('#top').innerHTML=[...V].filter(v=>!v.owner).sort((a,b)=>b.likes-a.likes||a.joined.localeCompare(b.joined)).map(v=>`<li>${v.flag} <b>@${v.handle}</b> — ❤️ ${v.likes}</li>`).join('');
