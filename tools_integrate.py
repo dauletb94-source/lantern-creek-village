@@ -18,7 +18,7 @@ H={h['handle'].lstrip('@'):h for h in meta['houses']}
 trail=0; titles={}
 for p in P:
     if p['kind']=='house': titles[p['id']]=('🔥 ' if p['house'].lstrip('@')=='lantern.creek.vil' else '🏡 ')+p['house']
-    elif p['kind']=='campfire': titles[p['id']]='🔥 Campfire'
+    elif p['kind']=='campfire': cf=sum(1 for k in titles.values() if 'Campfire' in k)+1; titles[p['id']]=f'🔥 Campfire, spot {cf}'
     else: trail+=1; titles[p['id']]=f'🌲 Forest trail {trail}'
 for v in data['villagers']:
     h=H.get(v['handle'])
