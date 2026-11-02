@@ -2,7 +2,12 @@
 const $=s=>document.querySelector(s);
 const [cfg,data]=await Promise.all(['data/config.json','data/villagers.json'].map(u=>fetch(u,{cache:'no-cache'}).then(r=>r.json())));
 const V=data.villagers, norm=s=>s.trim().toLowerCase().replace(/^@/,'');
-let mode=localStorage.getItem('lc_mode')||'night';
+let pref=localStorage.getItem('lc_pref')||'auto';localStorage.removeItem('lc_mode');
+let loc=JSON.parse(localStorage.getItem('lc_geo')||'null')||LCSun.tzGuess();
+const now=()=>window.__lcNow?new Date(window.__lcNow):new Date();
+const sunAlt=()=>LCSun.alt(now(),loc.lat,loc.lon);
+const autoMode=()=>sunAlt()>-0.833?'day':'night';
+let mode=pref==='auto'?autoMode():pref;
 // donate
 if(cfg.cashtag){const d=$('#donate');d.href='https://cash.app/$'+cfg.cashtag.replace(/^\$/,'');d.hidden=false;}
 // streak
@@ -21,16 +26,21 @@ V.forEach(v=>{const m=L.marker([H-v.y,v.x],{icon:L.divIcon({className:'',html:`<
 function show(v){map.flyTo([H-v.y,v.x],2,{duration:1.2});$('#house').innerHTML=`<img src="${v.image}" alt="House of @${v.handle}"><h3>${v.flag} ${v.name}</h3><div>@${v.handle} · ${v.country}${v.owner?' · 🔥 Campfire house':''}</div><small>Moved in: ${new Date(v.joined+'T12:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</small><br><a href="https://www.tiktok.com/@${v.handle}" target="_blank" rel="noopener">Open TikTok →</a> · <a href="#" id="walkhere">🚶 Walk here</a>`;$('#walkhere').onclick=e=>{e.preventDefault();tab('walk');viewer.loadScene(v.pano);};}
 $('#hl').innerHTML=V.map(v=>`<option value="@${v.handle}">`).join('');
 $('#sf').onsubmit=e=>{e.preventDefault();const q=norm($('#q').value);const v=V.find(v=>norm(v.handle)===q)||V.find(v=>q&&(norm(v.handle).includes(q)||v.name.toLowerCase().includes(q)));
- if(!v){$('#msg').textContent='No house yet for that name — comment “I want in” on TikTok!';return;}$('#msg').textContent='';tab('map');show(v);location.hash='@'+v.handle;};
+ if(!v){$('#msg').textContent='No house yet for that name — comment “Build my house 🏠” on TikTok!';return;}$('#msg').textContent='';tab('map');show(v);location.hash='@'+v.handle;};
 // pano
 function scenes(){const s={};data.panos.forEach(p=>s[p.id]={title:p.title,type:'equirectangular',panorama:p[mode],haov:360,vaov:160,hfov:100,autoLoad:true,hotSpots:p.links.map(l=>({pitch:-10,yaw:l.yaw,type:'scene',text:'➜ '+data.panos.find(x=>x.id===l.to).title,sceneId:l.to}))});return s;}
 let viewer=pannellum.viewer('pano',{default:{firstScene:'p1',sceneFadeDuration:800,autoLoad:true,showFullscreenCtrl:true},scenes:scenes()});
 // tabs
 function tab(t){document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));document.querySelectorAll('.tab').forEach(s=>s.classList.toggle('on',s.id==='t-'+t));if(t==='map')setTimeout(()=>map.invalidateSize(),50);if(t==='walk')setTimeout(()=>viewer.resize(),50);}
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>tab(b.dataset.t));
-// day/night
-function setMode(m){mode=m;localStorage.setItem('lc_mode',m);document.body.className=m;$('#dn').textContent=m==='night'?'🌙':'☀️';ov.setUrl(cfg.map[m]);const cur=viewer.getScene();viewer.destroy();viewer=pannellum.viewer('pano',{default:{firstScene:cur,sceneFadeDuration:800,autoLoad:true},scenes:scenes()});}
-$('#dn').onclick=()=>setMode(mode==='night'?'day':'night');if(mode==='day')setMode('day');
+// day/night: Auto (real local sunrise/sunset) / Day / Night
+function applyDim(){const a=sunAlt();document.body.style.setProperty('--dim',pref==='auto'&&a>-6&&a<4?String(Math.min(.35,Math.abs(a-4)/10*.35)):'0');}
+function setMode(m){if(m===mode&&document.body.classList.contains(m))return;mode=m;document.body.classList.remove('day','night');document.body.classList.add(m);document.querySelector('meta[name=theme-color]').content=m==='day'?'#8fc3ff':'#0b1020';ov.setUrl(cfg.map[m]);const cur=viewer.getScene();viewer.destroy();viewer=pannellum.viewer('pano',{default:{firstScene:cur,sceneFadeDuration:800,autoLoad:true},scenes:scenes()});}
+function label(){$('#dn').textContent=pref==='auto'?(mode==='night'?'🌙A':'☀️A'):pref==='night'?'🌙':'☀️';$('#dn').title=pref==='auto'?'Auto (your sunrise/sunset) — tap for Day':pref==='day'?'Day — tap for Night':'Night — tap for Auto';}
+function tick(){setMode(pref==='auto'?autoMode():pref);applyDim();label();}
+$('#dn').onclick=()=>{pref={auto:'day',day:'night',night:'auto'}[pref];localStorage.setItem('lc_pref',pref);tick();};
+document.body.classList.add(mode);tick();setInterval(tick,60000);window.__lcTick=tick;
+if(!localStorage.getItem('lc_geo_asked')&&navigator.geolocation){localStorage.setItem('lc_geo_asked','1');navigator.geolocation.getCurrentPosition(p=>{loc={lat:+p.coords.latitude.toFixed(2),lon:+p.coords.longitude.toFixed(2),src:'gps'};localStorage.setItem('lc_geo',JSON.stringify(loc));tick();},()=>{},{timeout:10000,maximumAge:864e5});}
 // news + top
 $('#news').innerHTML=data.news.map(n=>`<div class="news"><time>${n.date}</time><div>${n.text}</div></div>`).join('');
 $('#top').innerHTML=[...V].filter(v=>!v.owner).sort((a,b)=>b.likes-a.likes||a.joined.localeCompare(b.joined)).map(v=>`<li>${v.flag} <b>@${v.handle}</b> — ❤️ ${v.likes}</li>`).join('');
