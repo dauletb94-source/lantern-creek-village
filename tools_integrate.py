@@ -31,7 +31,7 @@ for p in P:
     links=[]
     for n in p['neighbors']:
         q=byid[n]; dx,dy=q['x']-p['x'],q['y']-p['y']; head=math.degrees(math.atan2(dy,dx)); dist=math.hypot(dx,dy)
-        links.append({'to':n,'yaw':round(norm(head-p['yaw']),1),'pitch':round(max(-30,-math.degrees(math.atan2(170,dist))),1)})
+        links.append({'to':n,'yaw':round(norm(head-p['yaw']),1),'pitch':round(max(-18,-math.degrees(math.atan2(170,dist))),1)})
     panos.append({'id':p['id'],'title':titles[p['id']],'kind':p['kind'],'x':round(p['pixel'][0]*sc,1),'y':round(p['pixel'][1]*sc,1),'night':f"pano/{p['id']}_night.jpg",'day':f"pano/{p['id']}_day.jpg",'links':links})
 data['panos']=panos
 json.dump(data,open(f'{D}/data/villagers.json','w'),ensure_ascii=False,indent=2)
